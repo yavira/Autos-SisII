@@ -24,6 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      – run: echo “🎉 The job was automatically triggered by a ${{ github.event_name }} event.”
+      – run: echo “🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!”
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
