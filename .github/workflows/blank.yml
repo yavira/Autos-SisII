@@ -15,17 +15,19 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
   lint:
   
     runs-on: ubuntu-latest
 
     steps:
-      – uses: actions/checkout@v3
+    
+        -  uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with: 
-          node-version: '14'
+        -  name: Setup Node
+           uses: actions/setup-node@v2
+           with:
+             node-version: '14'
     
   # This workflow contains a single job called "build"
   build:
