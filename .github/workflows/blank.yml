@@ -15,24 +15,17 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  Explore-GitHub-Actions:
+  lint:
   
     runs-on: ubuntu-latest
-    steps:
-      – name: Check out repository code
-        run: echo “${{ github.event_name }}“
-        
 
-      - uses: actions/checkout@v3
-    
-      – run: echo “💡 The ${{ github.repository }} repository has been cloned to the runner.”
-      
-      – run: echo “🖥️ The workflow is now ready to test your code on the runner.”
-      
-      – name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      – run: echo “🍏 This job’s status is ${{ job.status }}.”
+    steps:
+      – uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with: 
+          node-version: '14'
     
   # This workflow contains a single job called "build"
   build:
